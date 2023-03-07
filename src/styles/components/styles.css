@@ -1,0 +1,45 @@
+.bottom {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  margin: 1px;
+  z-index: 1;
+}
+
+.up {
+  top: 0;
+  position: absolute;
+  margin: 1px;
+  width: 100%;
+  z-index: 1;
+  transform: rotateX(180deg) rotateY(180deg);
+}
+
+.card-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+ 
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.7rem;
+}

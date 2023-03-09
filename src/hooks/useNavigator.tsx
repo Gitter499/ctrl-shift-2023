@@ -17,7 +17,7 @@ export const useNavigator = () => {
       y: "-100vh",
     },
     config: {
-      duration: 1000,
+      duration: 350,
     },
   }));
 

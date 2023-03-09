@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { navStore } from "@/stores/navStore";
 import { StoreProvider } from "easy-peasy";
+import Head from "next/head";
 import "./globals.css";
 
-export const metadata = {
+const metadata = {
   title: "Ctrl-Shift 2023 Project",
   description: "A project for 2023 CtrlShift coding competition",
   twitter: {

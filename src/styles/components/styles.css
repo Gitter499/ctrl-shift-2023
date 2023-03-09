@@ -33,6 +33,12 @@
   background: blue;
 }
 
+@media screen and (min-width: 390px) and (max-width: 700px) {
+  .link {
+    font-size: 3rem;
+  }
+}
+
 .link-container {
   position: absolute;
   top: 40%;

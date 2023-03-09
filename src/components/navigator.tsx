@@ -11,6 +11,7 @@ import { ActionCreator } from "easy-peasy";
 interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
   links: LinkType[];
   state: boolean;
+  render: boolean;
   setNavState: ActionCreator<boolean>;
   styles: {
     opacity: SpringValue<number>;
@@ -22,21 +23,23 @@ const inter = Inter({ subsets: ["latin"] });
 export const Navigator: React.FC<NavigatorProps> = ({
   links,
   state,
+  render,
   styles,
   setNavState,
 }) => {
   return (
     <>
-        <button
-            className="button"
-            onClick={(e) => {
-              e.preventDefault();
+      <button
+        className="button"
+        onClick={(e) => {
+          e.preventDefault();
 
-              setNavState(!state);
-            }}
-          >
-            Menu
-          </button>
+          setNavState(!state);
+        }}
+      >
+        Menu
+      </button>
+      {render && (
         <animated.div style={styles} className="nav-wrapper">
           <div>
             <div className="link-container">
@@ -45,8 +48,6 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   href={link.url}
                   key={idx}
                   onClick={(e) => {
-                    e.preventDefault();
-
                     setNavState(false);
                   }}
                   className={`link ${link.accentColor}`}
@@ -58,7 +59,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
             <h1>{state}</h1>
           </div>
         </animated.div>
-      
+      )}
     </>
   );
 };

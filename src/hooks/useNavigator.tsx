@@ -7,7 +7,11 @@ import { NavModel } from "@/stores/navStore";
 
 export const useNavigator = () => {
   const navState = useStoreState((state: State<NavModel>) => state.nav);
-  const setNavState = useStoreActions((actions: Actions<NavModel>) =>  actions.setNav)
+  const setNavState = useStoreActions(
+    (actions: Actions<NavModel>) => actions.setNav
+  );
+
+  const [render, setRender] = useState<boolean>(navState);
 
   const pathname = usePathname();
 
@@ -22,12 +26,17 @@ export const useNavigator = () => {
   }));
 
   useEffect(() => {
+    setTimeout(() => {
+      setRender(navState);
+    }, !navState ? 350 : 50);
+
     api.start({
       to: {
         opacity: navState ? 1 : 0,
         y: navState ? "0vh" : "-100vh",
       },
     });
+
     return () => {};
   }, [navState]);
 
@@ -53,6 +62,7 @@ export const useNavigator = () => {
             },
           ]}
           state={navState}
+          render={render}
           setNavState={setNavState}
           styles={props}
         />

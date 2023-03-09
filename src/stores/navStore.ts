@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { createStore, Action, action } from "easy-peasy";
 
@@ -8,6 +8,7 @@ export interface NavModel {
 }
 export const navStore = createStore<NavModel>({
   nav: false,
+
   setNav: action((state, payload) => {
     state.nav = payload;
   }),

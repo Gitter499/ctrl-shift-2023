@@ -15,6 +15,61 @@
   transform: rotateX(180deg) rotateY(180deg);
 }
 
+.nav-wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+
+  position: absolute;
+  z-index:10;
+  background: blue;
+}
+
+.link-container {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: white;
+  font-size: 4rem;
+  font-weight: 600;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.link .primary {
+  font-size: 2rem;
+  color: red;
+
+}
+
+.link .accent {
+  font-size: 1.5rem;
+  color: blue;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.link .tertiary {
+  font-size: 1rem;
+  color: green;
+}
+
+
+
 .card-parent {
   display: flex;
   flex-direction: column;

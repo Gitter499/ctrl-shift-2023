@@ -1,4 +1,7 @@
-import './globals.css'
+"use client"
+import { navStore } from "@/stores/navStore";
+import { StoreProvider } from "easy-peasy";
+import "./globals.css";
 
 export const metadata = {
   title: "Ctrl-Shift 2023 Project",
@@ -9,16 +12,18 @@ export const metadata = {
     description: "A project for 2023 CtrlShift coding competition",
     creator: "@rafayelamirkha1",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <StoreProvider store={navStore}>
+        <body>{children}</body>
+      </StoreProvider>
     </html>
-  )
+  );
 }

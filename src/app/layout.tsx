@@ -1,10 +1,10 @@
-"use client";
 import { navStore } from "@/stores/navStore";
-import { StoreProvider } from "easy-peasy";
-import Head from "next/head";
+import { StoreProvider } from "@/util/easy-peasy";
+
+
 import "./globals.css";
 
-const metadata = {
+export const metadata = {
   title: "Ctrl-Shift 2023 Project",
   description: "A project for 2023 CtrlShift coding competition",
   twitter: {
@@ -17,14 +17,20 @@ const metadata = {
 
 export default function RootLayout({
   children,
+  ...props
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode,
 }) {
+
+
+
   return (
     <html lang="en">
-      <StoreProvider store={navStore}>
-        <body>{children}</body>
-      </StoreProvider>
+     
+        <StoreProvider store={navStore}>
+          <body>{children}</body>
+        </StoreProvider>
+   
     </html>
   );
 }

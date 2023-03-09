@@ -48,7 +48,10 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   href={link.url}
                   key={idx}
                   onClick={(e) => {
-                    setNavState(false);
+                    setTimeout(() => {
+                      setNavState(false);
+                    }, 50)
+                    
                   }}
                   className={`link ${link.accentColor}`}
                 >

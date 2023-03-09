@@ -23,13 +23,7 @@ h1, h2, h3 {
   min-height: 100vh;
 }
 
-.button {
-  float: right;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 12;
-}
+
 .description {
   display: inherit;
   justify-content: inherit;

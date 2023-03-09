@@ -27,13 +27,23 @@ export const Navigator: React.FC<NavigatorProps> = ({
 }) => {
   return (
     <>
-      {
+        <button
+            className="button"
+            onClick={(e) => {
+              e.preventDefault();
+
+              setNavState(!state);
+            }}
+          >
+            Menu
+          </button>
         <animated.div style={styles} className="nav-wrapper">
           <div>
             <div className="link-container">
-              {links.map((link) => (
+              {links.map((link, idx) => (
                 <Link
                   href={link.url}
+                  key={idx}
                   onClick={(e) => {
                     e.preventDefault();
 
@@ -48,7 +58,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
             <h1>{state}</h1>
           </div>
         </animated.div>
-      }
+      
     </>
   );
 };

@@ -32,16 +32,7 @@ export default function Home() {
           <h1 className={`${inter.className}`}>
             Hello! Welcome to my 2023 CtrlShift project!
           </h1>
-          <button
-            className="button"
-            onClick={(e) => {
-              e.preventDefault();
-
-              setNavState(!navState);
-            }}
-          >
-            Menu
-          </button>
+        
         </div>
 
         <PlaceHolder direction="bottom" />

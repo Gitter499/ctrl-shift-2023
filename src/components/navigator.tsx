@@ -7,12 +7,13 @@ import Link from "next/link";
 
 import "@/styles/components/styles.css";
 import { ActionCreator } from "easy-peasy";
+import { Dispatch } from "react";
 
 interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
   links: LinkType[];
   state: boolean;
   render: boolean;
-  setNavState: ActionCreator<boolean>;
+  setNavState: Dispatch<boolean>;
   styles: {
     opacity: SpringValue<number>;
   };

@@ -6,11 +6,7 @@ import { Actions, State, useStoreActions, useStoreState } from "easy-peasy";
 import { NavModel } from "@/stores/navStore";
 
 export const useNavigator = () => {
-  const navState = useStoreState((state: State<NavModel>) => state.nav);
-  const setNavState = useStoreActions(
-    (actions: Actions<NavModel>) => actions.setNav
-  );
-
+  const [navState, setNavState] = useState<boolean>(false);
   const [render, setRender] = useState<boolean>(navState);
 
   const pathname = usePathname();

@@ -13,26 +13,28 @@ const inter = Inter({ subsets: ["latin"] });
 
 const PlaceHolder = animated(Placeholder);
 
+export const metadata = {
+  title: "Ctrl-Shift 2023 Project",
+  description: "A project for 2023 CtrlShift coding competition",
+  twitter: {
+    card: "summary",
+    title: "Ctrl-Shift 2023 Project",
+    description: "A project for 2023 CtrlShift coding competition",
+    creator: "@rafayelamirkha1",
+  },
+};
+
 export default function Home() {
   // make this a global state
 
-  const {
-    Nav,
-    navState,
-    setNavState,
-    api,
-  } = useNavigator();
-
   return (
     <>
-      <Nav />
       <main>
         {/* <PlaceHolder direction="up" /> */}
         <div className="center">
           <h1 className={`${inter.className}`}>
             Hello! Welcome to my 2023 CtrlShift project!
           </h1>
-        
         </div>
 
         <PlaceHolder direction="bottom" />

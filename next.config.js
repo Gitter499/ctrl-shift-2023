@@ -4,14 +4,14 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['avatars.githubusercontent.com'],
+    domains: ['pngfolio.com'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-        port: '*',
-        pathname: '/*',
-      },
+        hostname: 'pngfolio.com',
+        port: '',
+        pathname: '/',
+      }
     ],
   },
 }

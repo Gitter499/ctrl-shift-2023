@@ -2,21 +2,22 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
 import { config, useSpring } from "react-spring";
 import { Navigator } from "@/components/navigator";
-import { Actions, State, useStoreActions, useStoreState } from "easy-peasy";
-import { NavModel } from "@/stores/navStore";
+import { links } from "@/util/config";
 
 export const useNavigator = () => {
   const [navState, setNavState] = useState<boolean>(false);
   const [render, setRender] = useState<boolean>(navState);
 
-  const pathname = usePathname();
 
   const [props, api] = useSpring(() => ({
     from: {
       opacity: 0,
       y: "-100vh",
     },
-    config: config.stiff
+    config: {
+      duration: 300,
+      ...config.gentle
+    }
   }));
 
   useEffect(() => {
@@ -43,23 +44,7 @@ export const useNavigator = () => {
     const Menu = () => {
       return (
         <Navigator
-          links={[
-            {
-              name: "Home",
-              url: "/",
-              accentColor: pathname == "/" ? "primary" : "accent",
-            },
-            {
-              name: "About",
-              url: "/about",
-              accentColor: pathname == "/about" ? "primary" : "accent",
-            },
-            {
-              name: "Contact",
-              url: "/contact",
-              accentColor: pathname == "/contact" ? "primary" : "accent",
-            },
-          ]}
+          links={links}
           state={navState}
           render={render}
           setNavState={setNavState}

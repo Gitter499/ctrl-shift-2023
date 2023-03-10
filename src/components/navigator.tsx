@@ -1,7 +1,7 @@
 "use client";
 
 import { Link as LinkType } from "@/types/types";
-import { animated, SpringValue } from "@react-spring/web";
+import { animated, SpringValue, useSpring } from "@react-spring/web";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
@@ -31,19 +31,21 @@ export const Navigator: React.FC<NavigatorProps> = ({
   return (
     <>
       <button
-        className="button"
+        className={`button ${state ? "open" : "close"} ${inter.className} `}
         onClick={(e) => {
           e.preventDefault();
 
           setNavState(!state);
         }}
       >
-        Menu
+        {" "}
+        {state ? "close" : "menu"}
       </button>
       {render && (
         <animated.div style={styles} className="nav-wrapper">
-          <div>
-            <div className="link-container">
+          <div className="container">
+            <div className="big-column beige"></div>
+            <div className="column link-container">
               {links.map((link, idx) => (
                 <Link
                   href={link.url}
@@ -51,16 +53,14 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   onClick={(e) => {
                     setTimeout(() => {
                       setNavState(false);
-                    }, 50)
-                    
+                    }, 50);
                   }}
-                  className={`link ${link.accentColor}`}
+                  className={` link`}
                 >
-                  <span className={inter.className}>{link.name}</span>
+                  <span className={`${inter.className}`}>{link.name}</span>
                 </Link>
               ))}
             </div>
-            <h1>{state}</h1>
           </div>
         </animated.div>
       )}

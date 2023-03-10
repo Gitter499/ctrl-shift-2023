@@ -21,6 +21,35 @@
   top: 0;
   right: 0;
   z-index: 12;
+  border: 1px solid #18181a;
+  color: black;
+  font-size: 25px;
+  size: 100px;
+  font-weight: 600;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  cursor: pointer;
+  background: #fff;
+}
+
+.open {
+  background: black;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 15px;
+  border: none;
+  transition: all 0.6s ease-in;
+}
+
+.close {
+  background: white;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 15px;
+  transition: all 0.6s ease-in;
 }
 
 .nav-wrapper {
@@ -30,7 +59,7 @@
 
   position: absolute;
   z-index: 10;
-  background: blue;
+  background: black;
 }
 
 @media screen and (min-width: 390px) and (max-width: 700px) {
@@ -39,15 +68,37 @@
   }
 }
 
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
 .link-container {
-  position: absolute;
-  top: 40%;
-  left: 20%;
+  position: relative;
+  top: 10%;
+  left: 10%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.big-column {
+  width: 70%;
+  height: 100vh;
+}
+.column {
+  width: 30%;
+  height: 100vh;
+}
+
+.beige {
+  background-color: rgb(0, 66, 66);
 }
 
 .link {
@@ -57,26 +108,34 @@
   font-size: 4rem;
   font-weight: 600;
   padding: 1rem;
+  display: inline-block;
+  position: relative;
   transition: all 0.3s ease-in-out;
 }
 
-.link .primary {
-  font-size: 2rem;
-  color: red;
-}
+.link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
 
-.link .accent {
-  font-size: 1.5rem;
-  color: blue;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(0, 66, 66);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: beige;
 }
 
-.link .tertiary {
-  font-size: 1rem;
-  color: green;
+.link:hover::after {
+  transform: scaleX(1);
+  color: rgb(0, 66, 66);
+  transform-origin: bottom left;
 }
 
 .card-parent {

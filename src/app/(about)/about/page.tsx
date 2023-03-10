@@ -1,15 +1,27 @@
-"use client";
-import { Placeholder } from "@/components/placeholder";
-import { useNavigator } from "@/hooks/useNavigator";
-import { animated } from "react-spring";
+import { siteConfig } from "@/util/config";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: siteConfig.name,
+  description: `About ${siteConfig.name}`,
+  twitter: {
+    card: "summary",
+    title: siteConfig.name,
+    description: `About ${siteConfig.name}`,
+    creator: "@rafayelamirkha1",
+  },
+}
+
+
+
 
 const About = () => {
-  const PlaceHolder = animated(Placeholder);
+
   return (
     <>
       <div>
         <h1>About</h1>
-        <PlaceHolder direction="bottom" />
       </div>
     </>
   );

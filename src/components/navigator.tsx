@@ -61,8 +61,8 @@ export const Navigator: React.FC<NavigatorProps> = ({
               <div>
                 <TopicViewer show={show} />
               </div>
-              <h1 className={`${inter.className} logo-text `}>
-                I don't have a name
+              <h1 className={`${inter.className} logo-text`}>
+               No name
               </h1>
             </div>
             <div className="column link-container">

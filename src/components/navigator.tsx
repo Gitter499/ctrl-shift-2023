@@ -72,9 +72,11 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   key={idx}
                   onMouseEnter={(e) => {
                     e.preventDefault();
-                    if (idx < 4) {
-                      setShow(idx);
-                    }
+                    setTimeout(() => {
+                      if (idx <= 5) {
+                        setShow(idx);
+                      }
+                    }, 250);
                   }}
                   onClick={(e) => {
                     setTimeout(() => {

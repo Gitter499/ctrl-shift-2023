@@ -1,5 +1,6 @@
+"use client"
+
 import { Topic } from "@/types/types";
-import { topics } from "@/util/config";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
@@ -8,8 +9,9 @@ import { animated, useSpring } from "react-spring";
 const inter = Inter({ subsets: ["latin"] });
 
 export const TopicViewer: React.FC<{
+  topics: Topic[];
   show: number;
-}> = ({ show }) => {
+}> = ({ show, topics }) => {
   const [styles, api] = useSpring(() => ({
     from: {
       opacity: 0,

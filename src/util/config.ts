@@ -34,8 +34,21 @@ export const links: Link[] = [
   },
 ];
 
+export const authTopics: Topic[] = [
+  {
+    name: "Login",
+    description: "This is the login page, where you can login to your account",
+    imageURL: "/images/seek-cuate.png",
+  },
+  {
+    name: "Register",
+    description: "This is the register page, where you can register to our website",
+    imageURL: "/images/Acorns-cuate.png",
+  },
+];
 
-export const topics: Topic[] = [
+
+export const navTopics: Topic[] = [
   {
     name: "Home",
     description: "This is the home page, where everything starts",

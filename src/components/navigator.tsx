@@ -4,6 +4,7 @@ import { Link as LinkType } from "@/types/types";
 import { animated, SpringValue, useSpring } from "@react-spring/web";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import { navTopics } from "@/util/config";
 import Image from "next/image";
 
 import "@/styles/components/styles.css";
@@ -59,7 +60,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
             />
             <div className="big-column beige topic-container">
               <div>
-                <TopicViewer show={show} />
+                <TopicViewer  topics={navTopics} show={show} />
               </div>
               <h1 className={`${inter.className} logo-text`}>
                No name

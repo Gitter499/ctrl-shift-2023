@@ -23,7 +23,7 @@ export const useNavigator = () => {
   useEffect(() => {
     setTimeout(() => {
       setRender(navState);
-    }, !navState ? 200 : 100)
+    }, !navState ? 100 : 50)
 
     api.start({
       to: {

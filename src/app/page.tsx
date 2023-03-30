@@ -23,13 +23,16 @@ export default function Home() {
     <>
       <main>
         {/* <PlaceHolder direction="up" /> */}
-        <div className="">
-          <h1 className={`${avaneur.className} orange stylistic-left`}>
-            {siteConfig.name}
-          </h1>
-          <div>
+        <h1 className={`${avaneur.className} orange stylistic-left`}>
+          {siteConfig.name}
+        </h1>
+        <div className="main-container">
+          <div className="spacer">
+
+          </div>
+          <div className={`${inter.className} main-display`}>
             <h1>
-              Say <span className="highlight">YES</span> to the world of AI
+              Say <span className={`highlight`}>YES</span> to the world of AI
             </h1>
             <h2>
               AI powered business platform for the next generation of{" "}
@@ -48,17 +51,17 @@ export default function Home() {
           <div className="tricolumn-container">
             <div className="col-1">
               <h2>
-                <span className="orange">Selling Point 1</span>
+                <span >Selling Point 1</span>
               </h2>
             </div>
             <div className="col-2">
               <h2>
-                <span className="orange">Selling Point 2</span>
+                <span >Selling Point 2</span>
               </h2>
             </div>
             <div className="col-3">
               <h2>
-                <span className="orange">Selling Point 3</span>
+                <span>Selling Point 3</span>
               </h2>
             </div>
           </div>

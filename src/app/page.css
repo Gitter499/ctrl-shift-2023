@@ -1,14 +1,144 @@
 /* Finally using CSS lol  */
 
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 600;
   color: white;
   margin-bottom: 0.7rem;
 }
 
 html {
-  background-color: skyblue;
+  background-color: black;
+}
+
+.highlight {
+  color: skyblue;
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: white 0.1em 0.1em 0.2em;
+}
+.spacer {
+  padding: 3rem;
+  height: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+.main-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+
+  background-color: blue;
+}
+
+.short-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: fuchsia;
+}
+
+.tricolumn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: green;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: mediumorchid;
+}
+
+.profile-chat-demo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: pink;
+}
+
+.business-chat-demo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: purple;
+}
+
+.col-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: red;
+}
+
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: yellow;
+}
+
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 100%;
+  background-color: orange;
 }
 
 .rect {
@@ -24,18 +154,16 @@ html {
   transform: translate(-50%, -50%);
 }
 
-
 .stylistic-left {
   position: absolute;
   font-size: 150px;
   font-weight: 600;
-  top: 10%;
-  right: 40%;
-  
+  top: 0;
+  right: 80%;
 }
 
 .orange {
-  color: #FFA500;
+  color: #ffa500;
 }
 
 .main {
@@ -46,7 +174,6 @@ html {
   padding: 6rem;
   min-height: 100vh;
 }
-
 
 .description {
   display: inherit;
@@ -107,15 +234,11 @@ html {
 .card p {
   margin: 0;
   opacity: 0.6;
-  color:white;
+  color: white;
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 34ch;
 }
-
-
-
-
 
 .thirteen {
   display: flex;

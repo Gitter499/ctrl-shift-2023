@@ -3,6 +3,7 @@
 import { Link as LinkType } from "@/types/types";
 import { animated, SpringValue, useSpring } from "@react-spring/web";
 import { Inter } from "next/font/google";
+import Font from "next/font/local";
 import Link from "next/link";
 import { navTopics } from "@/util/config";
 import Image from "next/image";
@@ -10,7 +11,7 @@ import Image from "next/image";
 import "@/styles/components/styles.css";
 import { ActionCreator } from "easy-peasy";
 import { Dispatch, useState } from "react";
-import { TopicViewer } from "./topicViewer";
+import { TopicViewer } from "./topic-viewer";
 
 import { Tomorrow } from "next/font/google";
 interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
@@ -25,6 +26,8 @@ interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
 
 const inter = Inter({ subsets: ["latin"] });
 
+const customFont = Font({ src: "../../public/fonts/aveneur.ttf" });
+
 export const Navigator: React.FC<NavigatorProps> = ({
   links,
   state,
@@ -36,7 +39,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
   return (
     <>
       <button
-        className={`button ${state ? "open" : "close"} ${inter.className} `}
+        className={`button ${state ? "open" : "close"} ${customFont.className} `}
         onClick={(e) => {
           e.preventDefault();
 
@@ -60,11 +63,9 @@ export const Navigator: React.FC<NavigatorProps> = ({
             />
             <div className="big-column beige topic-container">
               <div>
-                <TopicViewer  topics={navTopics} show={show} />
+                <TopicViewer topics={navTopics} show={show} />
               </div>
-              <h1 className={`${inter.className} logo-text`}>
-               No name
-              </h1>
+              <h1 className={`${customFont.className} logo-text`}>Backward Revolution</h1>
             </div>
             <div className="column link-container">
               {links.map((link, idx) => (
@@ -86,7 +87,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   }}
                   className={`link`}
                 >
-                  <span className={`${inter.className}`}>{link.name}</span>
+                  <span className={`${customFont.className}`}>{link.name}</span>
                 </Link>
               ))}
             </div>

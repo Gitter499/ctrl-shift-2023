@@ -18,18 +18,25 @@
 .button {
   float: right;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 3%;
+  right: 2%;
   z-index: 12;
-  border: 1px solid #18181a;
+  border: 6px solid #18181a;
   color: black;
   font-size: 25px;
-  size: 100px;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
   font-weight: 600;
-  line-height: 15px;
+  line-height: 10px;
   padding: 18px 18px 17px;
   text-decoration: none;
   cursor: pointer;
+  border: 2px black;
+  border-radius: 150px;
   background: #fff;
 }
 
@@ -39,7 +46,6 @@
   font-size: 15px;
   font-weight: 600;
   line-height: 15px;
-  border: none;
   transition: all 0.6s ease-in;
 }
 
@@ -62,8 +68,7 @@
   background: black;
 }
 
-@media screen  and (max-width: 850px) {
-  
+@media screen and (max-width: 850px) {
   .container {
     overflow: hidden;
     display: flex;
@@ -71,9 +76,8 @@
   }
 
   .logo-text {
-   visibility: hidden;
+    visibility: hidden;
   }
-
 
   .column {
     width: 100vw;
@@ -86,7 +90,6 @@
     position: relative;
     top: 10%;
     left: 30%;
-
   }
 
   .link {
@@ -108,7 +111,6 @@
 }
 
 .container {
-
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -128,15 +130,10 @@
   z-index: 10;
 }
 
-
-
-
-
 .link-container {
   position: relative;
   top: 10%;
   left: 14%;
-
 
   display: flex;
   flex-direction: column;
@@ -147,6 +144,9 @@
 .big-column {
   width: 70vw;
   height: 100vh;
+  border-right: dotted 3px black;
+  border-top: dotted 3px black;
+  border-bottom: dotted 3px black;
 }
 
 .topic-container {
@@ -165,15 +165,44 @@
   justify-content: center;
   align-items: center;
 }
+
 .kitty {
   z-index: 20;
   position: absolute;
-  top: 90%;
-  right: 90%;
+  top: 93%;
+  right: 95%;
   transform: rotateY(180deg);
-
-
 }
+.kitty:hover {
+  animation: KittyJump 1s ease-in;
+}
+
+.kitty::after {
+  animation: KittyEnlarge 1s ease-in;
+}
+
+@keyframes KittyEnlarge {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes KittyJump {
+  0% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+  50% {
+    transform: rotateY(180deg) translateY(-20px);
+  }
+  100% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+}
+
+
 
 .topic-title {
   font-size: 5rem;
@@ -191,12 +220,51 @@
 }
 .column {
   width: 30vw;
-
   height: 100vh;
+  background-color: black;
 }
 
 .beige {
-  background-color: rgb(0, 66, 66);
+  background: linear-gradient(340deg, fuchsia, #c5c124, orange, skyblue);
+  background-size: 400% 400%;
+
+  -webkit-animation: GradientAnimate 8s ease infinite;
+  -moz-animation: GradientAnimate 8s ease infinite;
+  animation: GradientAnimate 8s ease infinite;
+}
+
+@-webkit-keyframes GradientAnimate {
+  0% {
+    background-position: 11% 0%;
+  }
+  50% {
+    background-position: 90% 100%;
+  }
+  100% {
+    background-position: 11% 0%;
+  }
+}
+@-moz-keyframes GradientAnimate {
+  0% {
+    background-position: 11% 0%;
+  }
+  50% {
+    background-position: 90% 100%;
+  }
+  100% {
+    background-position: 11% 0%;
+  }
+}
+@keyframes GradientAnimate {
+  0% {
+    background-position: 11% 0%;
+  }
+  50% {
+    background-position: 90% 100%;
+  }
+  100% {
+    background-position: 11% 0%;
+  }
 }
 
 .link {

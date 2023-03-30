@@ -8,34 +8,30 @@ export const useNavigator = () => {
   const [navState, setNavState] = useState<boolean>(false);
   const [render, setRender] = useState<boolean>(navState);
 
-
   const [props, api] = useSpring(() => ({
     from: {
       opacity: 0,
+      blur: "0px",
       y: "-100vh",
     },
     config: {
-      duration: 300,
+      duration: 500,
       ...config.gentle
-    }
+    },
   }));
 
   useEffect(() => {
-    
-      setTimeout(
-        () => {
-          setRender(navState);
-        },
-        !navState ? 200 : 50
-      );
+    setTimeout(() => {
+      setRender(navState);
+    }, !navState ? 200 : 100)
 
-      api.start({
-        to: {
-          opacity: navState ? 1 : 0,
-          y: navState ? "0vh" : "-100vh",
-        },
-      });
-  
+    api.start({
+      to: {
+        opacity: navState ? 1 : 0,
+        blur: navState ? "0px" : "10px",
+        y: navState ? "0vw" : "-100vw",
+      },
+    });
 
     return () => {};
   }, [navState]);

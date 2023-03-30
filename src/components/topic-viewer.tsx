@@ -5,6 +5,15 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
 import { animated, useSpring } from "react-spring";
+import Font from "next/font/local"
+
+
+
+const avaneur = Font({ src: "../../public/fonts/aveneur.ttf" });
+
+const taruno = Font({ src: "../../public/fonts/Fontspring-DEMO-tarunowide-regular.otf" });
+
+const ragata = Font({ src: "../../public/fonts/ragataregular.otf" });
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +43,7 @@ export const TopicViewer: React.FC<{
     return (
       <animated.div
         style={styles}
-        className={`topic-container ${inter.className} `}
+        className={`topic-container ${ragata.className} `}
       >
         <Image
           src={"https://pngfolio.com/images/all_img/copy/1635696779cat-png.png"}
@@ -57,7 +66,7 @@ export const TopicViewer: React.FC<{
   return (
     <>
       <animated.div style={styles}>
-        <div className={`topic-container ${inter.className} `}>
+        <div className={`topic-container ${ragata.className} `}>
           <Image
             src={topics[show].imageURL}
             alt={topics[show].name}

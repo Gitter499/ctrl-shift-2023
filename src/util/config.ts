@@ -1,12 +1,12 @@
 import { Link, Topic } from "@/types/types";
 
 export const siteConfig = {
-  name: "Ctrl-Shift 2023 Project",
-  description: "A project for 2023 CtrlShift coding competition",
+  name: "Yes!",
+  description: "A platform for AI powered business connections",
   twitter: {
     card: "summary",
-    title: "Ctrl-Shift 2023 Project",
-    description: "A project for 2023 CtrlShift coding competition",
+    title: "Yes!",
+    description: "A platform for AI powered business connections",
     creator: "@rafayelamirkha1",
   },
 };
@@ -25,8 +25,8 @@ export const links: Link[] = [
     url: "/login",
   },
   {
-    name: "Register",
-    url: "/register",
+    "name": "Signup",
+    "url": "/signup",
   },
   {
     name: "Contact",
@@ -36,15 +36,15 @@ export const links: Link[] = [
 
 export const authTopics: Topic[] = [
   {
-    name: "Login",
-    description: "This is the login page, where you can login to your account",
-    imageURL: "/images/seek-cuate.png",
+    name: "Signin",
+    description: "This is the signin page, where you can signin to your account",
+    imageURL: "/images/Fingerprint-cuate.png",
   },
   {
-    name: "Register",
-    description: "This is the register page, where you can register to our website",
-    imageURL: "/images/Acorns-cuate.png",
-  },
+    name: "Signup",
+    description: "This is the signup page, where you can signup to your account",
+    imageURL: "/images/Queue-cuate.png",
+  }
 ];
 
 
@@ -52,23 +52,25 @@ export const navTopics: Topic[] = [
   {
     name: "Home",
     description: "This is the home page, where everything starts",
-    imageURL: "/images/Honey-cuate.png",
+    imageURL: "/images/Lo-fi-concept-cuate.png",
   },
   {
     name: "About",
     description: "This is the about page, where you can learn more about us",
-    imageURL: "/images/Kitsune-mask-cuate.png",
+    imageURL: "/images/About us page-cuate.png",
   },
   {
-    name: "Login",
-    description: "This is the login page, where you can login to your account",
-    imageURL: "/images/seek-cuate.png",
+    name: "Signin",
+    description: "Signin to your account",
+    imageURL: "/images/Fingerprint-cuate.png",
   },
   {
-    name: "Register",
-    description: "This is the register page, where you can register to our website",
-    imageURL: "/images/Acorns-cuate.png",
+    name: "Signup",
+    description: "Signup to your account",
+    imageURL: "/images/Queue-cuate.png",
+
   },
+
   {
     name: "Contact",
     description: "This is the contact page, where you can contact us",

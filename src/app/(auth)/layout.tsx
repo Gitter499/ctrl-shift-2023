@@ -1,8 +1,9 @@
 "use client";
-import { TopicViewer } from "@/components/topicViewer";
+import { TopicViewer } from "@/components/topic-viewer";
 import { authTopics } from "@/util/config";
+import { animated, useSpring } from "@react-spring/web";
 import { usePathname } from "next/navigation";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import "./page.css";
 
 interface Props {

@@ -25,8 +25,8 @@ export const links: Link[] = [
     url: "/login",
   },
   {
-    "name": "Signup",
-    "url": "/signup",
+    name: "Signup",
+    url: "/signup",
   },
   {
     name: "Contact",
@@ -37,16 +37,17 @@ export const links: Link[] = [
 export const authTopics: Topic[] = [
   {
     name: "Signin",
-    description: "This is the signin page, where you can signin to your account",
+    description:
+      "This is the signin page, where you can signin to your account",
     imageURL: "/images/Fingerprint-cuate.png",
   },
   {
     name: "Signup",
-    description: "This is the signup page, where you can signup to your account",
+    description:
+      "This is the signup page, where you can signup to your account",
     imageURL: "/images/Queue-cuate.png",
-  }
+  },
 ];
-
 
 export const navTopics: Topic[] = [
   {
@@ -68,12 +69,13 @@ export const navTopics: Topic[] = [
     name: "Signup",
     description: "Signup to your account",
     imageURL: "/images/Queue-cuate.png",
-
   },
 
   {
     name: "Contact",
     description: "This is the contact page, where you can contact us",
     imageURL: "/images/Get-in-touch-cuate.png",
-  }
+  },
 ];
+
+

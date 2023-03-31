@@ -1,15 +1,19 @@
-import { Inter } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./page.css";
-import { Placeholder } from "@/components/placeholder";
-import { animated } from "@react-spring/web";
 import { Metadata } from "next";
 import { siteConfig } from "@/util/config";
 import Font from "next/font/local";
 import { TextAlternator } from "@/components/text-alternator";
+import { AH2 } from "@/components/typography";
+import { animate, animations } from "@/util/animate";
+const avaneur = Font({
+  src: "../../public/fonts/aveneur.ttf",
+});
 
-const avaneur = Font({ src: "../../public/fonts/aveneur.ttf" });
-
-const inter = Inter({ subsets: ["latin"] });
+const spacemono = Space_Mono({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -23,40 +27,37 @@ export default function Home() {
     <>
       <main>
         {/* <PlaceHolder direction="up" /> */}
-        <h1 className={`${avaneur.className} orange stylistic-left`}>
+        <h1 className={`${avaneur.className} stylistic-left`}>
           {siteConfig.name}
         </h1>
         <div className="main-container">
-          <div className="spacer">
-
-          </div>
-          <div className={`${inter.className} main-display`}>
-            <h1>
-              Say <span className={`highlight`}>YES</span> to the world of AI
+          <div className={`${spacemono.className} main-display`}>
+            <h1 className="top-left">
+              Saying <span className={`highlight`}>YES</span> to the world of AI
             </h1>
-            <h2>
+            <AH2 animationName={"slideFromRight"}>
               AI powered business platform for the next generation of{" "}
               <span className="highlight">
                 <TextAlternator
                   texts={["developers", "designers", "entrepreneurs"]}
                 />
               </span>
-            </h2>
+            </AH2>
           </div>
           <div className="short-row">
-            <h1>
+            <AH2 animationName="scrollRight">
               <span className="highlight">AI</span> powered business platform
-            </h1>
+            </AH2>
           </div>
           <div className="tricolumn-container">
             <div className="col-1">
               <h2>
-                <span >Selling Point 1</span>
+                <span>Selling Point 1</span>
               </h2>
             </div>
             <div className="col-2">
               <h2>
-                <span >Selling Point 2</span>
+                <span>Selling Point 2</span>
               </h2>
             </div>
             <div className="col-3">
@@ -80,8 +81,8 @@ export default function Home() {
             </h1>
           </div>
           <div className="business-chat-demo">
-            <div className="col-1"></div>
-            <div className="col-2"></div>
+            <div className="col-1">Person Here</div>
+            <div className="col-2">Chat here</div>
           </div>
         </div>
       </main>

@@ -30,8 +30,9 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 120px;
 }
+
 .main-display {
   display: flex;
   flex-direction: row;
@@ -156,15 +157,26 @@ html {
 
 .stylistic-left {
   position: absolute;
-  font-size: 150px;
+  font-size: 100px;
   font-weight: 600;
   top: 0;
+  color: #ffa500;
+
   right: 80%;
 }
 
-.orange {
-  color: #ffa500;
+.top-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  right: 10%;
 }
+
+
 
 .main {
   display: flex;

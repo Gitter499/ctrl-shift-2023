@@ -45,7 +45,7 @@ export default function Home() {
             </AH2>
           </div>
           <div className="short-row">
-            <AH2 animationName="scrollRight">
+            <AH2 animationName="scrollRight" className={spacemono.className}>
               <span className="highlight">AI</span> powered business platform
             </AH2>
           </div>

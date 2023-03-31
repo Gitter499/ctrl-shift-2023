@@ -4,7 +4,7 @@ import { useEffect, FC } from "react";
 import { useSpring, animated, config, useScroll } from "react-spring";
 import { animate } from "@/util/animate";
 
-interface H2Props {
+interface H2Props extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
   font?: string;
   animationName?: string;
@@ -16,10 +16,10 @@ export const AH2: FC<H2Props> = ({
   animationName,
   ...rest
 }) => {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({});
 
   const animation = animate(animationName!!);
- 
+
   const [props, api] = useSpring(
     animationName
       ? () => animation.initial
@@ -37,8 +37,6 @@ export const AH2: FC<H2Props> = ({
   useEffect(() => {
     if (animation && animation.onLoad) {
       api.start(animation.onLoad(api));
-
-     
     } else {
       api.start({
         to: {
@@ -49,7 +47,6 @@ export const AH2: FC<H2Props> = ({
   }, []);
 
   if (animation.scroll) {
-  
     return (
       <>
         <animated.h2 style={animation.scroll(scrollYProgress)} {...rest}>
@@ -67,4 +64,3 @@ export const AH2: FC<H2Props> = ({
     </>
   );
 };
-

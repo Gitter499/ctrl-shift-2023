@@ -4,6 +4,7 @@ import {
   Lookup,
   SpringRef,
   SpringValue,
+  to,
   useSpring,
 } from "react-spring";
 
@@ -33,9 +34,13 @@ export const animations: Animation[] = [
   },
   {
     name: "scrollRight",
-    scroll: (yProgress: SpringValue<number>) => ({
-      x: yProgress.to([0, 1], ["0vw", "100vw"]),
-    }),
+    scroll: (yProgress: SpringValue<number>) => {
+      const x = to([yProgress], (y) => `${0.15 / y}vw`);
+
+      return {
+        x,
+      };
+    },
   },
 ];
 

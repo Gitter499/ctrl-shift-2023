@@ -5,9 +5,10 @@ import { useSpring, animated } from "react-spring";
 
 interface Props {
   texts: string[];
+  ms?: number;
 }
 
-export const TextAlternator: FC<Props> = ({ texts }) => {
+export const TextAlternator: FC<Props> = ({ texts, ms }) => {
   const [text, setText] = useState(texts[0]);
 
   const [props, api] = useSpring(() => ({
@@ -19,7 +20,7 @@ export const TextAlternator: FC<Props> = ({ texts }) => {
       const index = texts.indexOf(prev);
       return index === texts.length - 1 ? texts[0] : texts[index + 1];
     });
-  }, 3000);
+  }, ms || 3000);
 
   useEffect(() => {
     api.start({

@@ -38,17 +38,18 @@ export const Navigator: React.FC<NavigatorProps> = ({
   const [show, setShow] = useState(-1);
   return (
     <>
-      <button
-        className={`button ${state ? "open" : "close"} ${customFont.className} `}
-        onClick={(e) => {
-          e.preventDefault();
-
-          setNavState(!state);
-        }}
-      >
-        {" "}
-        {state ? "close" : "menu"}
-      </button>
+      
+        <button
+          className={`button ${state ? "open" : "close"} ${customFont.className} `}
+          onClick={(e) => {
+            e.preventDefault();
+            setNavState(!state);
+          }}
+        >
+          {" "}
+          {state ? "close" : "menu"}
+        </button>
+      
       {render && (
         <animated.div style={styles} className="nav-wrapper">
           <div className="container">

@@ -35,29 +35,39 @@ export const animations: Animation[] = [
   {
     name: "scrollRight",
     scroll: (yProgress: SpringValue<number>) => {
-      const x = to([yProgress], (y) => `${0.15 / y}vw`);
+      const x = to([yProgress], (y) => `${0.85 / ( y + 0.001)}vw`);
 
       return {
         x,
       };
     },
   },
-];
 
+  {
+    name: "scrollLeft",
+    scroll: (yProgress: SpringValue<number>) => {
+      const x = to([yProgress], (y) => `${-0.85 / y}vw`);
+
+      return {
+        x,
+      };
+    }
+  },
+
+];
+// @ts-ignore
 export const animate = (animation: string): Omit<Animation, "name"> => {
   const anim = animations.find((a) => a.name === animation);
-  if (!anim) {
-    throw new Error(`No animation found with name ${animation}`);
-  }
-
-  if (anim.scroll) {
+  
+  if (anim && anim.scroll) {
     return {
       scroll: anim.scroll,
     };
-  } else {
+  } else if (anim) {
     return {
       initial: anim.initial,
       onLoad: anim.onLoad,
     };
   }
+
 };

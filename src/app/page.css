@@ -13,15 +13,21 @@ html {
 }
 
 .highlight {
-  color: skyblue;
+  color: white;
+  display: block;
   font-size: 3rem;
   font-weight: bold;
-  font-style: italic;
   text-shadow: white 0.1em 0.1em 0.2em;
 }
 .spacer {
   padding: 3rem;
   height: 100%;
+}
+
+.big-text {
+  font-size: calc(min(60px, 15vw));
+  display: block;
+  text-align: center;
 }
 
 .main-container {
@@ -33,12 +39,20 @@ html {
   padding-top: 120px;
 }
 
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
 .main-display {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height: 100vh;
   width: 100%;
   padding: 0 2rem;
   max-width: 100%;
@@ -51,11 +65,13 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height: 70vh;
   width: 100%;
   padding: 0 2rem;
   max-width: 100%;
-  background-color: fuchsia;
+  font-size: 30px;
+  text-align: center;
+  background-color: rebeccapurple;
 }
 
 .tricolumn-container {
@@ -63,11 +79,11 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height: 80vh;
   width: 100%;
   padding: 0 2rem;
   max-width: 100%;
-  background-color: green;
+  background-color: black;
 }
 
 .profile {
@@ -115,7 +131,7 @@ html {
   width: 100%;
   padding: 0 2rem;
   max-width: 100%;
-  background-color: red;
+  background-color: black;
 }
 
 .col-2 {
@@ -127,7 +143,7 @@ html {
   width: 100%;
   padding: 0 2rem;
   max-width: 100%;
-  background-color: yellow;
+  background-color: black;
 }
 
 .col-3 {
@@ -139,7 +155,7 @@ html {
   width: 100%;
   padding: 0 2rem;
   max-width: 100%;
-  background-color: orange;
+  background-color: black;
 }
 
 .rect {
@@ -161,8 +177,8 @@ html {
   font-weight: 600;
   top: 0;
   color: #ffa500;
-
-  right: 80%;
+  float: left;
+  padding-left: 10px;
 }
 
 .top-left {

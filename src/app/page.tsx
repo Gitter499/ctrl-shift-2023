@@ -5,7 +5,7 @@ import { siteConfig } from "@/util/config";
 import Font from "next/font/local";
 import { TextAlternator } from "@/components/text-alternator";
 import { AH2 } from "@/components/typography";
-import { animate, animations } from "@/util/animate";
+import { SellingPoint } from "@/components/selling-point";
 const avaneur = Font({
   src: "../../public/fonts/aveneur.ttf",
 });
@@ -32,11 +32,16 @@ export default function Home() {
         </h1>
         <div className="main-container">
           <div className={`${spacemono.className} main-display`}>
-            <h1 className="top-left">
-              Saying <span className={`highlight`}>YES</span> to the world of AI
-            </h1>
-            <AH2 animationName={"slideFromRight"}>
-              AI powered business platform for the next generation of{" "}
+            {/* <Image
+              src="/images/train.png"
+              className="train"
+              alt="Train"
+              width={500}
+              height={300}
+            /> */}
+            <AH2 animationName={"slideFromRight"} className="big-text">
+              AI powered business platform <br /> for the next generation of{" "}
+              <br />
               <span className="highlight">
                 <TextAlternator
                   texts={["developers", "designers", "entrepreneurs"]}
@@ -45,25 +50,39 @@ export default function Home() {
             </AH2>
           </div>
           <div className="short-row">
-            <AH2 animationName="scrollRight" className={spacemono.className}>
-              <span className="highlight">AI</span> powered business platform
-            </AH2>
+            <div className="col">
+              <AH2 animationName="scrollRight" className={spacemono.className}>
+                <span className="highlight">AI</span> powered business platform
+              </AH2>
+              <AH2 animationName="scrollLeft" className={spacemono.className}>
+                To make you the best<span className="highlight">you</span>
+              </AH2>
+            </div>
           </div>
           <div className="tricolumn-container">
             <div className="col-1">
-              <h2>
-                <span>Selling Point 1</span>
-              </h2>
+              <SellingPoint
+                title="Powered by GPT-3"
+                description="Powerful LLM to handle all your business related tasks"
+                icon="openai"
+                threshold={0.4}
+              />
             </div>
             <div className="col-2">
-              <h2>
-                <span>Selling Point 2</span>
-              </h2>
+              <SellingPoint
+                title="Powered by GPT-3"
+                description="Powerful LLM to handle all your business related tasks"
+                icon="openai"
+                threshold={0.6}
+              />
             </div>
             <div className="col-3">
-              <h2>
-                <span>Selling Point 3</span>
-              </h2>
+              <SellingPoint
+                title="Powered by GPT-3"
+                description="Powerful LLM to handle all your business related tasks"
+                icon="openai"
+                threshold={0.4}
+              />
             </div>
           </div>
           <div className="profile">

@@ -16,7 +16,7 @@ export const AH2: FC<H2Props> = ({
   animationName,
   ...rest
 }) => {
-  const { scrollYProgress } = useScroll({});
+  const { scrollYProgress } = useScroll();
 
   const animation = animate(animationName!!);
 
@@ -46,7 +46,7 @@ export const AH2: FC<H2Props> = ({
     }
   }, []);
 
-  if (animation.scroll) {
+  if (animation && animation.scroll) {
     return (
       <>
         <animated.h2 style={animation.scroll(scrollYProgress)} {...rest}>

@@ -7,6 +7,7 @@ import { Space_Mono } from "next/font/google";
 
 import { SiOpenai } from "react-icons/si";
 import { IconType } from "react-icons";
+import Tilty from "react-tilty";
 
 interface SellingPointProps {
   title: string;
@@ -41,9 +42,13 @@ export const SellingPoint: FC<SellingPointProps> = ({
     () => ({
       from: {
         opacity: 0,
+        y: 40,
+        boxShadow: "0px 5px 0px 0px #ffffff",
       },
       to: {
         opacity: 1,
+        y: 0,
+        boxShadow: "4px 5px 10px 0px #ffffff",
       },
     }),
 
@@ -56,17 +61,19 @@ export const SellingPoint: FC<SellingPointProps> = ({
 
   return (
     <>
-      <animated.div
-        ref={ref}
-        style={springs}
-        className={`selling-point ${spacemono.className}`}
-      >
-        <div >
-            <Icon className="selling-icon" />
-        </div>
-        <AH2 className="text-black">{title}</AH2>
-        <p className="description">{description}</p>
-      </animated.div>
+      <Tilty>
+        <animated.div
+          ref={ref}
+          style={springs}
+          className={`selling-point ${spacemono.className}`}
+        >
+          <div >
+              <Icon className="selling-icon" />
+          </div>
+          <AH2 className="text-black">{title}</AH2>
+          <p className="description">{description}</p>
+        </animated.div>
+      </Tilty>
     </>
   );
 };

@@ -15,7 +15,7 @@ export const useNavigator = () => {
       y: "-100vh",
     },
     config: {
-      duration: 500,
+      duration: 350,
       ...config.gentle
     },
   }));
@@ -23,7 +23,7 @@ export const useNavigator = () => {
   useEffect(() => {
     setTimeout(() => {
       setRender(navState);
-    }, !navState ? 100 : 50)
+    }, !navState ? 150 : 80)
 
     api.start({
       to: {

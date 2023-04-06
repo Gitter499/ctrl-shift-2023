@@ -12,13 +12,15 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GITHUB_CLIENT_ID!!,
 
       clientSecret: process.env.GITHUB_CLIENT_SECRET!!,
+      checks: "state",
     }),
   ],
   session: {
     strategy: "jwt",
   },
   pages: {
-    signIn: "/auth/login",
+    signIn: "/auth/signin",
+    newUser: "/welcome/",
   },
   callbacks: {
     async session({ token, session }) {
@@ -33,7 +35,10 @@ export const authOptions: NextAuthOptions = {
         session.user.email = token.email;
         // @ts-ignore
 
-        session.user.image = token.picture;
+        session.user.image = token.picture; //
+
+        // @ts-ignore
+        session.user.infoCompleted = token.infoCompleted; //hee hee -MJ
       }
 
       return session;
@@ -57,9 +62,11 @@ export const authOptions: NextAuthOptions = {
         name: dbUser.name,
         email: dbUser.email,
         picture: dbUser.image,
+        infoCompleted: dbUser.infoCompleted,
       };
     },
   },
+  secret: process.env.SECRET!!,
 };
 
 export default NextAuth(authOptions);

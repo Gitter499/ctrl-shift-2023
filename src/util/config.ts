@@ -21,12 +21,8 @@ export const links: Link[] = [
     url: "/about",
   },
   {
-    name: "Login",
-    url: "/login",
-  },
-  {
-    name: "Signup",
-    url: "/signup",
+    name: "Signin",
+    url: "/signin",
   },
   {
     name: "Contact",
@@ -64,11 +60,6 @@ export const navTopics: Topic[] = [
     name: "Signin",
     description: "Signin to your account",
     imageURL: "/images/Fingerprint-cuate.png",
-  },
-  {
-    name: "Signup",
-    description: "Signup to your account",
-    imageURL: "/images/Queue-cuate.png",
   },
 
   {

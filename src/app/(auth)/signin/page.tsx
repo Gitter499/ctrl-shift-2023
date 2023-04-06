@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai";
 interface Props {}
 
-const Login: FC<Props> = () => {
+const SignInPage: FC<Props> = () => {
   const [loading, setLoading] = useState(false);
 
   return (
@@ -18,7 +18,9 @@ const Login: FC<Props> = () => {
             className="signin-button"
             onClick={() => {
               setLoading(true);
-              signIn("github");
+              signIn("github", {
+                callbackUrl: "/profile"
+              });
             }}
             disabled={loading}
           >
@@ -30,4 +32,4 @@ const Login: FC<Props> = () => {
   );
 };
 
-export default Login;
+export default SignInPage;

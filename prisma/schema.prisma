@@ -45,13 +45,13 @@ model User {
   firstName           String?
   lastName            String?
   image               String?
+  emailVerified       DateTime?         @map("email_verified")
+  infoCompleted       Boolean?
   info                Info?
   accounts            Account[]
   sessions            Session[]
-  verificationToken   VerificationToken @relation(fields: [verificationTokenId], references: [id])
   updatedAt           DateTime?         @updatedAt
   createdAt           DateTime?         @default(now())
-  verificationTokenId String            @db.ObjectId
 }
 
 model Info {
@@ -81,7 +81,6 @@ model VerificationToken {
   identifier String
   token      String   @unique
   expires    DateTime
-  User       User[]
 
   @@unique([identifier, token])
 }

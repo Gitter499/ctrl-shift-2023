@@ -33,6 +33,22 @@ export const animations: Animation[] = [
       }),
   },
   {
+    name: "slideFromLeft",
+    initial: {
+      from: {
+        x: "-100vw",
+      },
+      config: {
+        duration: 500,
+        ...config.gentle,
+      },
+    },
+    onLoad: (api: SpringRef<{ x: string }>) =>
+      api.start({
+        x: "0vw",
+      }),
+  },
+  {
     name: "scrollRight",
     scroll: (yProgress: SpringValue<number>) => {
       const x = to([yProgress], (y) => `${0.85 / ( y + 0.001)}vw`);

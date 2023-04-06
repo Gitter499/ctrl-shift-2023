@@ -9,11 +9,9 @@ import { navTopics } from "@/util/config";
 import Image from "next/image";
 
 import "@/styles/components/styles.css";
-import { ActionCreator } from "easy-peasy";
 import { Dispatch, useState } from "react";
 import { TopicViewer } from "./topic-viewer";
 
-import { Tomorrow } from "next/font/google";
 interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
   links: LinkType[];
   state: boolean;
@@ -36,6 +34,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
   setNavState,
 }) => {
   const [show, setShow] = useState(-1);
+
   return (
     <>
       
@@ -53,15 +52,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
       {render && (
         <animated.div style={styles} className="nav-wrapper">
           <div className="container">
-            <Image
-              src={
-                "https://pngfolio.com/images/all_img/copy/1635696779cat-png.png"
-              }
-              alt="Kitty kat"
-              className="kitty"
-              width={180}
-              height={200}
-            />
+           
             <div className="big-column beige topic-container">
               <div>
                 <TopicViewer topics={navTopics} show={show} />
@@ -76,7 +67,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   onMouseEnter={(e) => {
                     e.preventDefault();
                     setTimeout(() => {
-                      if (idx <= 5) {
+                      if (idx <= 4) {
                         setShow(idx);
                       }
                     }, 250);

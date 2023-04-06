@@ -6,6 +6,7 @@ import Font from "next/font/local";
 import { TextAlternator } from "@/components/text-alternator";
 import { AH2 } from "@/components/typography";
 import { SellingPoint } from "@/components/selling-point";
+import ExampleProfile from "@/components/profile/example";
 const avaneur = Font({
   src: "../../public/fonts/aveneur.ttf",
 });
@@ -86,11 +87,8 @@ export default function Home() {
             </div>
           </div>
           <div className="profile">
-            <h1>
-              {" "}
-              Make your own <span className="highlighted">Profile</span>
-            </h1>
-            <div>Replace this jawn with image</div>
+            {/* @ts-ignore Server components make Typescript confused */}
+            <ExampleProfile />
           </div>
           <div className="profile-chat-demo">
             <h1>

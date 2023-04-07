@@ -1,3 +1,4 @@
+"use client"
 import { TopicViewer } from "@/components/topic-viewer";
 import { getUser } from "@/lib/user/getUser";
 import { authTopics } from "@/util/config";
@@ -9,9 +10,8 @@ interface Props {
   children: React.ReactNode;
 }
 
-const AuthLayout = async ({ children }: Props) => {
-  const user = await getUser();
-  if (user) redirect("/profile");
+const AuthLayout = ({ children }: Props) => {
+
 
   return (
     <div className="auth-layout">

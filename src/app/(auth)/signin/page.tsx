@@ -1,12 +1,17 @@
 "use client";
 
 import { FC, useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai";
+import { redirect } from "next/navigation";
 interface Props {}
 
 const SignInPage: FC<Props> = () => {
   const [loading, setLoading] = useState(false);
+
+  const session = useSession();
+
+  if (session.status === "authenticated") redirect("/profile");
 
   return (
     <div>
@@ -19,7 +24,7 @@ const SignInPage: FC<Props> = () => {
             onClick={() => {
               setLoading(true);
               signIn("github", {
-                callbackUrl: "/profile"
+                callbackUrl: "/profile",
               });
             }}
             disabled={loading}

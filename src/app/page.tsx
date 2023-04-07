@@ -86,6 +86,14 @@ export default function Home() {
               />
             </div>
           </div>
+          <div className={`profile-spacer ${spacemono.className}`}>
+            <AH2>
+              Create a custom profile, so you can be{" "}
+              <span className="highlight">
+                <TextAlternator texts={["seen", "discovered", "heard", "out there"]} />
+              </span>
+            </AH2>
+          </div>
           <div className="profile">
             {/* @ts-ignore Server components make Typescript confused */}
             <ExampleProfile />

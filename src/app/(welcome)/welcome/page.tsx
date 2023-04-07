@@ -2,9 +2,10 @@
 import { AH2 } from "@/components/typography";
 import { Metadata } from "next";
 import { useDropzone } from "react-dropzone";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { redirect } from "next/navigation";
 import { Sendable } from "@/types/types";
+import { FileUploader } from "react-drag-drop-files";
 
 type Props = {};
 
@@ -14,6 +15,7 @@ type Props = {};
 // };
 
 const WelcomePage = (props: Props) => {
+  const [file, setFile] = useState<Blob | undefined>(undefined);
   const sendable: Sendable = {};
 
   const onClick = async () => {
@@ -35,19 +37,7 @@ const WelcomePage = (props: Props) => {
     }
   };
 
-  const onDrop = useCallback((files: File[]) => {
-    console.log(files);
 
-    sendable.resume = files[0] as Blob;
-  }, []);
-
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    maxFiles: 1,
-    accept: {
-      "application/pdf": [".pdf"],
-    },
-  });
 
   return (
     <>
@@ -96,9 +86,7 @@ const WelcomePage = (props: Props) => {
           <AH2 animationName="slideFromLeft">Resume</AH2>
           <p>Upload your resume to get started.</p>
           <div className="resume-dropzone">
-            <div {...getRootProps}>
-              <input {...getInputProps} />
-            </div>
+              <FileUploader  handleChange={(file: Blob) => setFile(file)} name="file" types={["PDF"]} />
           </div>
         </div>
         <div className="submit-container">

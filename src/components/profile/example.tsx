@@ -1,5 +1,11 @@
 import { Result } from "@/types/types";
+import { Space_Mono } from "next/font/google";
 import Image from "next/image";
+
+const spacemono = Space_Mono({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const ExampleProfile = async () => {
   const data = await fetch("https://randomuser.me/api/");
@@ -16,19 +22,22 @@ const ExampleProfile = async () => {
     "Dog Walker",
   ];
 
+  
+
   return (
     <>
-      <div className="profile-container">
+      <div className={`profile-container ${spacemono.className}`}>
         <div className="profile">
-          <div className="profile-image">
+          <div>
             <Image
-              src={user.picture.medium}
+              className="profile-image"
+              src={user.picture.large}
               alt="profile"
               width={200}
               height={200}
             />
           </div>
-          <div className="profile-name">
+          <div className={`profile-name`}>
             <h1>
               {user.name.first} {user.name.last}
             </h1>
@@ -46,10 +55,12 @@ const ExampleProfile = async () => {
             </div>
             <div className="p-card profile-website">
               <h2>Website</h2>
-              <p>Your Website</p>
+              <a href={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}>
+                {user.name.first}{user.name.last}.com
+              </a>
             </div>
-            <div className="p-card profile-skills">
-              <div>
+          
+              <div className="p-card profile-skills">
                 <h2>Skills</h2>
                 <ul>
                   {skills.map((skill, index) => (
@@ -57,11 +68,11 @@ const ExampleProfile = async () => {
                   ))}
                 </ul>
               </div>
-              <div>
+              <div className="p-card profile-education">
                 <h2>Education</h2>
                 <h3>University of {user.location.city}</h3>
               </div>
-              <div>
+              <div className="p-card profile-work">
                 <h2>Work</h2>
                 <ul>
                   {work.map((job, index) => (
@@ -70,7 +81,7 @@ const ExampleProfile = async () => {
                 </ul>
               </div>
             </div>
-          </div>
+      
         </div>
       </div>
     </>

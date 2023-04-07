@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['pngfolio.com', 'randomuser.me'],
+    domains: ['pngfolio.com', 'randomuser.me', 'avatars.githubusercontent.com'],
     remotePatterns: [
       {
         protocol: 'https',

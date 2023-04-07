@@ -1,8 +1,8 @@
 import { getUser } from "@/lib/user/getUser";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { Metadata } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { FC } from "react";
 
 export const metadata: Metadata = {
   title: "Signin",
@@ -17,11 +17,12 @@ export const metadata: Metadata = {
   },
 };
 const LoginLayout = async ({ children }: { children: React.ReactNode }) => {
-  const session = await getSession();
+  const session = await getServerSession(authOptions);
 
   if (session?.user) {
-    redirect("/profile")
     console.log(session)
+    redirect("/profile")
+    
   }
 
   return <>{children}</>;

@@ -1,0 +1,13 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vhh;
+    width: 100vw;
+    padding: 20px;
+    bottom: 50%;   
+    background-color: blue;
+
+}

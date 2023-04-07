@@ -12,6 +12,7 @@ import "@/styles/components/styles.css";
 import { Dispatch, useState } from "react";
 import { TopicViewer } from "./topic-viewer";
 
+
 interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
   links: LinkType[];
   state: boolean;
@@ -34,6 +35,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
   setNavState,
 }) => {
   const [show, setShow] = useState(-1);
+
 
   return (
     <>

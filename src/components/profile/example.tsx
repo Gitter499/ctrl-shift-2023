@@ -22,7 +22,7 @@ const ExampleProfile = async () => {
     "Dog Walker",
   ];
 
-  
+
 
   return (
     <>
@@ -37,22 +37,26 @@ const ExampleProfile = async () => {
               height={200}
             />
           </div>
+
           <div className={`profile-name`}>
             <h1>
               {user.name.first} {user.name.last}
             </h1>
           </div>
+
           <div className="profile-info">
             <div className="p-card profile-bio">
               <h2>Bio</h2>
               <p>I am {user.dob.age} years old</p>
             </div>
+
             <div className="p-card profile-location">
               <h2>Location</h2>
               <p>
                 {user.location.city}, {user.location.country}
               </p>
             </div>
+
             <div className="p-card profile-website">
               <h2>Website</h2>
               <a href={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}>
@@ -68,6 +72,7 @@ const ExampleProfile = async () => {
                   ))}
                 </ul>
               </div>
+              
               <div className="p-card profile-education">
                 <h2>Education</h2>
                 <h3>University of {user.location.city}</h3>
@@ -81,7 +86,6 @@ const ExampleProfile = async () => {
                 </ul>
               </div>
             </div>
-      
         </div>
       </div>
     </>

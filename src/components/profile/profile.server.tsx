@@ -6,10 +6,17 @@ import { redirect } from "next/navigation";
 import { Conditional } from "../conditional";
 import { Info, Resume, User } from "@prisma/client";
 import { filterObject } from "@/util/filter";
+import { Space_Mono } from "next/font/google";
 
 type Props = {
   email: string;
 };
+
+const spacemono = Space_Mono({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const Profile = async ({ email }: Props) => {
   const user = (await getUser(email, {
     info: {
@@ -35,7 +42,7 @@ const Profile = async ({ email }: Props) => {
 
   return (
     <>
-      <div className="profile-container">
+      <div className={`profile-container ${spacemono.className}`}>
         <div className="profile">
           <div>
             <Image
@@ -75,24 +82,23 @@ const Profile = async ({ email }: Props) => {
                 ))}
               </ul>
             </div>
-          </div>
+            <div className="p-card profile-education">
+              <h2>Education</h2>
+              <ul>
+                {user.info.resume.education.map((school, index) => (
+                  <li key={index}>{school}</li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="p-card profile-education">
-            <h2>Education</h2>
-            <ul>
-              {user.info.resume.education.map((school, index) => (
-                <li key={index}>{school}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="p-card profile-work">
-            <h2>Work</h2>
-            <ul>
-              {user.info.resume.work.map((job, index) => (
-                <li key={index}>{job}</li>
-              ))}
-            </ul>
+            <div className="p-card profile-work">
+              <h2>Work</h2>
+              <ul>
+                {user.info.resume.work.map((job, index) => (
+                  <li key={index}>{job}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

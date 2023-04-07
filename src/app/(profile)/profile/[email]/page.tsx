@@ -1,6 +1,7 @@
 import React from "react";
 import { getUser } from "@/lib/user/getUser";
 import Profile from "@/components/profile/profile.server";
+import "@/app/(profile)/profile/page.css";
 
 type Props = {
   params: {
@@ -23,10 +24,12 @@ const PublicProfilePage = async (props: Props) => {
   }
 
   return (
-    <div>
-      {/* @ts-ignore */}
-      <Profile email={stringifiedEmail} />
-    </div>
+    <main>
+      <div className="container">
+        {/* @ts-ignore */}
+        <Profile email={stringifiedEmail} />
+      </div>
+    </main>
   );
 };
 

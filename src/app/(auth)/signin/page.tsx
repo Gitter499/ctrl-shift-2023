@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
-import { signIn, useSession } from "next-auth/react";
+import { getSession, signIn, useSession } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai";
 import { redirect } from "next/navigation";
 interface Props {}
@@ -9,9 +9,7 @@ interface Props {}
 const SignInPage: FC<Props> = () => {
   const [loading, setLoading] = useState(false);
 
-  const session = useSession();
-
-  if (session.status && session.status === "authenticated") redirect("/profile");
+  
 
   return (
     <div>

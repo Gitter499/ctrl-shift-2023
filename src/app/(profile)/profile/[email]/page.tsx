@@ -17,7 +17,7 @@ const PublicProfilePage = async (props: Props) => {
   if (!user) {
     return (
       <>
-        <div> No user with email "{stringifiedEmail}" exists</div>
+        <div> No user with email {stringifiedEmail} exists</div>
       </>
     );
   }

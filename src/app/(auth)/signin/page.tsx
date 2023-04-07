@@ -11,7 +11,7 @@ const SignInPage: FC<Props> = () => {
 
   const session = useSession();
 
-  if (session.status === "authenticated") redirect("/profile");
+  if (session.status && session.status === "authenticated") redirect("/profile");
 
   return (
     <div>

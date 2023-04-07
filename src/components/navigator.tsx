@@ -2,7 +2,7 @@
 
 import { Link as LinkType } from "@/types/types";
 import { animated, SpringValue, useSpring } from "@react-spring/web";
-import { Inter } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import Font from "next/font/local";
 import Link from "next/link";
 import { navTopics } from "@/util/config";
@@ -11,7 +11,6 @@ import Image from "next/image";
 import "@/styles/components/styles.css";
 import { Dispatch, useState } from "react";
 import { TopicViewer } from "./topic-viewer";
-
 
 interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
   links: LinkType[];
@@ -23,9 +22,10 @@ interface NavigatorProps extends React.HTMLAttributes<HTMLElement> {
   };
 }
 
-const inter = Inter({ subsets: ["latin"] });
-
-const customFont = Font({ src: "../../public/fonts/aveneur.ttf" });
+const spacemono = Space_Mono({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const Navigator: React.FC<NavigatorProps> = ({
   links,
@@ -36,30 +36,31 @@ export const Navigator: React.FC<NavigatorProps> = ({
 }) => {
   const [show, setShow] = useState(-1);
 
-
   return (
     <>
-      
-        <button
-          className={`button ${state ? "open" : "close"} ${customFont.className} `}
-          onClick={(e) => {
-            e.preventDefault();
-            setNavState(!state);
-          }}
-        >
-          {" "}
-          {state ? "close" : "menu"}
-        </button>
-      
+      <button
+        className={`button ${state ? "open" : "close"} ${
+          spacemono.className
+        } `}
+        onClick={(e) => {
+          e.preventDefault();
+          setNavState(!state);
+        }}
+      >
+        {" "}
+        {state ? "close" : "menu"}
+      </button>
+
       {render && (
         <animated.div style={styles} className="nav-wrapper">
           <div className="container">
-           
             <div className="big-column beige topic-container">
               <div>
                 <TopicViewer topics={navTopics} show={show} />
               </div>
-              <h1 className={`${customFont.className} logo-text`}>Backward Revolution</h1>
+              <h1 className={`${spacemono.className} logo-text`}>
+                Backward Revolution
+              </h1>
             </div>
             <div className="column link-container">
               {links.map((link, idx) => (
@@ -81,7 +82,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
                   }}
                   className={`link`}
                 >
-                  <span className={`${customFont.className}`}>{link.name}</span>
+                  <span className={`${spacemono.className}`}>{link.name}</span>
                 </Link>
               ))}
             </div>

@@ -16,7 +16,7 @@
 }
 
 .button {
-  position: absolute;
+  position: fixed;
   top: 3%;
   right: 2%;
   z-index: 12;
@@ -61,8 +61,10 @@
   height: 100vh;
   width: 100vw;
   overflow-y: hidden;
+  
 
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   z-index: 10;
   background: black;
 }

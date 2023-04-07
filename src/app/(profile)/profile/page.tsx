@@ -10,7 +10,6 @@ type Props = {};
 const ProfilePage = async (props: Props) => {
   const session = await getServerSession(authOptions);
 
-  console.log(session)
 
   if (!session) redirect("/signin");
 

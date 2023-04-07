@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = {};
 
-const ProfilePage = (props: Props) => {
+const ProfilePage = async (props: Props) => {
   return (
     <>
     {/* @ts-ignore */}

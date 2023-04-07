@@ -1,9 +1,15 @@
+import Profile from "@/components/profile/profile.server";
 import React from "react";
 
 type Props = {};
 
 const ProfilePage = (props: Props) => {
-  return <div>Hello</div>;
+  return (
+    <>
+    {/* @ts-ignore */}
+    <Profile />
+    </>
+  );
 };
 
 export default ProfilePage;

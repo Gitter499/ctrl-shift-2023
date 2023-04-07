@@ -19,8 +19,11 @@ export const metadata: Metadata = {
 const LoginLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = await getSession();
 
-  if (session?.user) redirect("/profile");
-  
+  if (session?.user) {
+    redirect("/profile")
+    console.log(session)
+  }
+
   return <>{children}</>;
 };
 

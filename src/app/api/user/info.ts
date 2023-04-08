@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
-  const { resume, ...rest } = req.body as Sendable;
+  const { resume, ...rest } = req.body as unknown as Sendable;
 
   if (!resume) {
     return new NextResponse(

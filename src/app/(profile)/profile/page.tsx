@@ -1,6 +1,6 @@
 import Profile from "@/components/profile/profile.server";
 import React from "react";
-import "@/app/(profile)/profile/page.css";
+import "./page.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { redirect } from "next/navigation";

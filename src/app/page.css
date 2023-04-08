@@ -104,7 +104,7 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 120vh;
+  height: 140vh;
   width: 100%;
   padding: 10px;
   max-width: 100%;
@@ -185,13 +185,14 @@ html {
 }
 
 .stylistic-left {
-  position: absolute;
+  position: fixed;
   font-size: 100px;
   font-weight: 600;
   top: 0;
   color: #ffa500;
   float: left;
   padding-left: 10px;
+  z-index: 5;
 }
 
 .top-left {

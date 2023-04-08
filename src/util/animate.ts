@@ -51,7 +51,7 @@ export const animations: Animation[] = [
   {
     name: "scrollRight",
     scroll: (yProgress: SpringValue<number>) => {
-      const x = to([yProgress], (y) => `${0.85 / ( y + 0.001)}vw`);
+      const x = to([yProgress], (y) => `${0.55 / ( y + 0.001)}vw`);
 
       return {
         x,
@@ -62,7 +62,7 @@ export const animations: Animation[] = [
   {
     name: "scrollLeft",
     scroll: (yProgress: SpringValue<number>) => {
-      const x = to([yProgress], (y) => `${-0.85 / y}vw`);
+      const x = to([yProgress], (y) => `${-0.45 / y}vw`);
 
       return {
         x,

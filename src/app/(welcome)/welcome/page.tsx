@@ -1,11 +1,12 @@
-"use client"
+"use client";
 import { AH2 } from "@/components/typography";
-import { Metadata } from "next";
-import { useDropzone } from "react-dropzone";
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { Sendable } from "@/types/types";
 import { FileUploader } from "react-drag-drop-files";
+
+import { getUser } from "@/lib/user/getUser";
+import { useSession } from "next-auth/react";
 
 type Props = {};
 
@@ -16,6 +17,24 @@ type Props = {};
 
 const WelcomePage = (props: Props) => {
   const [file, setFile] = useState<Blob | undefined>(undefined);
+
+  const session = useSession();
+
+  if (!session) redirect("/signin");
+
+  useEffect(() => {
+    const user = async () => {
+      const user = await getUser(session.data?.user?.email!!);
+      return user;
+    };
+
+    user().then((user) => {
+      if (user?.infoCompleted) redirect("/profile");
+    });
+
+    return () => {};
+  }, []);
+
   const sendable: Sendable = {};
 
   const onClick = async () => {
@@ -36,8 +55,6 @@ const WelcomePage = (props: Props) => {
       }
     }
   };
-
-
 
   return (
     <>
@@ -86,7 +103,11 @@ const WelcomePage = (props: Props) => {
           <AH2 animationName="slideFromLeft">Resume</AH2>
           <p>Upload your resume to get started.</p>
           <div className="resume-dropzone">
-              <FileUploader  handleChange={(file: Blob) => setFile(file)} name="file" types={["PDF"]} />
+            <FileUploader
+              handleChange={(file: Blob) => setFile(file)}
+              name="file"
+              types={["PDF"]}
+            />
           </div>
         </div>
         <div className="submit-container">

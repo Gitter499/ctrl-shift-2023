@@ -5,8 +5,10 @@ import { redirect } from "next/navigation";
 import { Sendable } from "@/types/types";
 import { FileUploader } from "react-drag-drop-files";
 
+import "./page.css";
+
 import { getUser } from "@/lib/user/getUser";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 
 type Props = {};
 
@@ -17,34 +19,29 @@ type Props = {};
 
 const WelcomePage = (props: Props) => {
   const [file, setFile] = useState<Blob | undefined>(undefined);
+  const [sendable, setSendable] = useState<Sendable>({
+    bio: "",
+    location: "",
+    website: "",
+    birthday: "",
+    resume: undefined,
+  });
 
-  const session = useSession();
+  const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  if (!session) redirect("/signin");
-
-  useEffect(() => {
-    const user = async () => {
-      const user = await getUser(session.data?.user?.email!!);
-      return user;
-    };
-
-    user().then((user) => {
-      if (user?.infoCompleted) redirect("/profile");
+    setSendable({
+      bio: e.currentTarget.bio.value,
+      location: e.currentTarget.location.value,
+      website: e.currentTarget.website.value,
+      birthday: e.currentTarget.birthday.value,
+      resume: file,
     });
 
-    return () => {};
-  }, []);
-
-  const sendable: Sendable = {};
-
-  const onClick = async () => {
+    
     if (!sendable.resume) {
       alert("Please upload a resume.");
     } else {
-      if (!sendable.bio) {
-        sendable.bio = "No bio :-(";
-      }
-
       const res = await fetch("/api/user/info", {
         method: "POST",
         body: JSON.stringify(sendable),
@@ -63,11 +60,12 @@ const WelcomePage = (props: Props) => {
           <AH2 animationName="slideFromLeft">Welcome to Yes!</AH2>
           <p>Please fill out some of the information below to get started.</p>
           <div className="info-container">
-            <form className="info-form">
+            <form className="info-form" onSubmit={onSubmit}>
               <div className="bio">
                 <label htmlFor="bio">Bio</label>
                 <textarea
                   name="bio"
+                  required
                   id="bio"
                   cols={30}
                   rows={10}
@@ -77,6 +75,7 @@ const WelcomePage = (props: Props) => {
               <div className="location">
                 <label htmlFor="location">Location</label>
                 <input
+                  required
                   type="text"
                   name="location"
                   id="location"
@@ -86,6 +85,7 @@ const WelcomePage = (props: Props) => {
               <div className="website">
                 <label htmlFor="website">Website</label>
                 <input
+                  required
                   type="text"
                   name="website"
                   id="website"
@@ -96,24 +96,22 @@ const WelcomePage = (props: Props) => {
                 <label htmlFor="birthday">Birthday</label>
                 <input type="date" name="birthday" id="birthday" />
               </div>
+              <div className="resume-container">
+                <AH2 animationName="slideFromLeft">Resume</AH2>
+                <p>Upload your resume to get started.</p>
+                <div className="resume-dropzone">
+                  <FileUploader
+                    handleChange={(file: Blob) => setFile(file)}
+                    name="file"
+                    types={["PDF"]}
+                  />
+                </div>
+              </div>
+              <div className="submit-container">
+                <button type="submit">Submit</button>
+              </div>
             </form>
           </div>
-        </div>
-        <div className="resume-container">
-          <AH2 animationName="slideFromLeft">Resume</AH2>
-          <p>Upload your resume to get started.</p>
-          <div className="resume-dropzone">
-            <FileUploader
-              handleChange={(file: Blob) => setFile(file)}
-              name="file"
-              types={["PDF"]}
-            />
-          </div>
-        </div>
-        <div className="submit-container">
-          <button type="submit" onClick={onClick}>
-            Submit
-          </button>
         </div>
       </div>
     </>

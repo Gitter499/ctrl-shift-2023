@@ -11,10 +11,10 @@ export interface Topic {
 
 export interface Sendable {
   resume?: Blob;
-  bio?: string;
-  website?: string;
-  location?: string;
-  birthday?: string;
+  bio: string;
+  website: string;
+  location: string;
+  birthday: string;
 }
 
 // Found this from a random library

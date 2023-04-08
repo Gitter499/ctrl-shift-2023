@@ -1,11 +1,16 @@
 "use client";
 import { useNavigator } from "@/hooks/useNavigator";
-import { navStore } from "@/stores/navStore";
-import { StoreProvider } from "@/util/easy-peasy";
+
+import { siteConfig } from "@/util/config";
+
+import Font from "next/font/local";
+
 
 import "./globals.css";
 
-
+const avaneur = Font({
+  src: "../../public/fonts/aveneur.ttf",
+});
 
 export default function RootLayout({
   children,
@@ -17,7 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Nav />
-      <body>{children}</body>
+      <body>
+        <h1 className={`${avaneur.className} stylistic-left`}>
+          {siteConfig.name}
+        </h1>
+        {children}
+      </body>
     </html>
   );
 }

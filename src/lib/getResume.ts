@@ -20,7 +20,7 @@ export const getResume = async (resume: Blob) => {
 
   const chatPrompt = ChatPromptTemplate.fromPromptMessages([
     SystemMessagePromptTemplate.fromTemplate(
-      "You are a helpful assistant that turns PDF files into text. Find the following fields in the PDF and return them as a pure JSON object. If you can't find a field, don't include it. Follow this schema: {schema}"
+      "You are a helpful assistant that turns PDF files into text. Find the following fields in the PDF and return them as a pure JSON object. If you can't find a field, put No {field name}. Follow this schema: {schema}"
     ),
     HumanMessagePromptTemplate.fromTemplate("{input_documents}"),
   ]);

@@ -59,7 +59,7 @@ export const Navigator: React.FC<NavigatorProps> = ({
                 <TopicViewer topics={navTopics} show={show} />
               </div>
               <h1 className={`${spacemono.className} logo-text`}>
-                Backward Revolution
+                Navigator
               </h1>
             </div>
             <div className="column link-container">

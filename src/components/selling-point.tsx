@@ -8,6 +8,8 @@ import { Space_Mono } from "next/font/google";
 import { SiOpenai } from "react-icons/si";
 import { IconType } from "react-icons";
 import Tilty from "react-tilty";
+import { AiOutlineFileText } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 
 interface SellingPointProps {
   title: string;
@@ -29,6 +31,14 @@ const icons: Icon[] = [
   {
     name: "openai",
     icon: SiOpenai,
+  },
+  {
+    name: "profile",
+    icon: CgProfile,
+  },
+  {
+    name: "resume",
+    icon: AiOutlineFileText,
   },
 ];
 
@@ -67,8 +77,8 @@ export const SellingPoint: FC<SellingPointProps> = ({
           style={springs}
           className={`selling-point ${spacemono.className}`}
         >
-          <div >
-              <Icon className="selling-icon" />
+          <div>
+            <Icon className="selling-icon" />
           </div>
           <AH2 className="text-black">{title}</AH2>
           <p className="description">{description}</p>

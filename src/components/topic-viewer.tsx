@@ -39,18 +39,13 @@ export const TopicViewer: React.FC<{
         style={styles}
         className={`topic-container ${spacemono.className} `}
       >
-        <Image
-          src={"https://pngfolio.com/images/all_img/copy/1635696779cat-png.png"}
-          alt={"kitty kat"}
-          width={350}
-          height={350}
-        />
-
         <div className="topic-column">
-          <h1 className="topic-title">Kitty Kat</h1>
+          <h1 className="topic-title">
+            This is the
+            <span className="highlight"> navigator</span>
+          </h1>
           <p className="topic-description">
-            This is a wiki about cats. It is a work in progress, so please be
-            patient. If you have any questions, please contact me at
+            You can use this to navigate around yes!
           </p>
         </div>
       </animated.div>

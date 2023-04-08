@@ -28,9 +28,7 @@ export default function Home() {
     <>
       <main>
         {/* <PlaceHolder direction="up" /> */}
-        <h1 className={`${avaneur.className} stylistic-left`}>
-          {siteConfig.name}
-        </h1>
+        
         <div className="main-container">
           <div className={`${spacemono.className} main-display`}>
             {/* <Image
@@ -71,17 +69,17 @@ export default function Home() {
             </div>
             <div className="col-2">
               <SellingPoint
-                title="Powered by GPT-3"
-                description="Powerful LLM to handle all your business related tasks"
-                icon="openai"
+                title="Custom Profiles"
+                description="Profiles that are tailored to your needs"
+                icon="profile"
                 threshold={0.6}
               />
             </div>
             <div className="col-3">
               <SellingPoint
-                title="Powered by GPT-3"
-                description="Powerful LLM to handle all your business related tasks"
-                icon="openai"
+                title="AI Resume Analysis"
+              description="Upload a PDF of your resume and let yes! automatically fill out your profile"
+                icon="resume"
                 threshold={0.4}
               />
             </div>
@@ -98,11 +96,15 @@ export default function Home() {
             {/* @ts-ignore Server components make Typescript confused */}
             <ExampleProfile />
           </div>
-          <div className="profile-chat-demo">
+          <div className={ `profile-chat-demo ${spacemono.className}`}>
             <h1>
               {" "}
               <span className="highlighted">Chat</span> with a simulated version
               of a person
+
+              <p>
+                Work in Progress 🚧
+              </p>
             </h1>
           </div>
           <div className="business-chat-demo">

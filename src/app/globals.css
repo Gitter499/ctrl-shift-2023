@@ -48,6 +48,18 @@
   padding: 4rem 0;
 }
 
+.stylistic-left {
+  position: fixed;
+  font-size: 100px;
+  font-weight: 600;
+  top: 0;
+  color: #ffa500;
+  float: left;
+  padding-left: 10px;
+  z-index: 5;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

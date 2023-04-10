@@ -3,7 +3,8 @@
 import { FC, useState } from "react";
 import { getSession, signIn, useSession } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai";
-import { redirect } from "next/navigation";
+
+
 interface Props {}
 
 const SignInPage: FC<Props> = () => {

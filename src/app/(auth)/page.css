@@ -16,6 +16,30 @@
     
 }
 
+.signin-button {
+    position: fixed;
+    top: 3%;
+    right: 2%;
+    z-index: 12;
+    border: 6px solid #18181a;
+    color: black;
+    font-size: 55px;
+    text-align: center;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    font-weight: 600;
+    line-height: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 18px 18px 16px;
+    border: 2px black;
+    border-radius: 150px;
+    background: #fff;
+}
+
 .col-1 {
     background-color: black;
 }

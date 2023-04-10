@@ -18,7 +18,7 @@ const Contact = () => {
       <div className={`contact ${spacemono.className}`}>
         <div className="github">
           <AiFillGithub />
-          <a className="link"href="https://github.com/Gitter499">
+          <a className="contact-link"href="https://github.com/Gitter499">
             My Github
           </a>
         </div>
@@ -30,7 +30,7 @@ const Contact = () => {
               For any questions, comments, or concerns, please contact me at the
               following email address:
               <br />
-              <a  className="link" href="mailto:rafayel.amirkhanyan@gmail.com">
+              <a  className="contact-link" href="mailto:rafayel.amirkhanyan@gmail.com">
                 rafayel.amirkhanyan@gmail.com
               </a>
             </p>

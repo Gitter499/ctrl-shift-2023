@@ -1,8 +1,7 @@
 import { Resume } from "@prisma/client";
 import { LLMChain } from "langchain";
 import { ChatOpenAI } from "langchain/chat_models";
-import { Document } from "langchain/document";
-import  { DocxLoader } from "langchain/document_loaders";
+import { DocxLoader } from "langchain/document_loaders";
 import {
   ChatPromptTemplate,
   SystemMessagePromptTemplate,
@@ -10,16 +9,13 @@ import {
 } from "langchain/prompts";
 
 export const getResume = async (resume: any) => {
+  console.log(resume.filepath);
 
-  console.log(resume.filepath)
- 
-  const loader = new DocxLoader(resume.filepath.toString())
+  const loader = new DocxLoader(resume.filepath.toString());
 
- 
-  const docs = await loader.load()
+  const docs = await loader.load();
 
-  console.log(docs)
-
+  console.log(docs);
 
   const chat = new ChatOpenAI({
     temperature: 0,
@@ -38,28 +34,24 @@ export const getResume = async (resume: any) => {
     prompt: chatPrompt,
   });
 
- try {
-  const response = await chain.call({
-    input_documents: JSON.stringify(docs),
-    schema: `{
+  try {
+    const response = await chain.call({
+      input_documents: JSON.stringify(docs),
+      schema: `{
         title: string | null;
         summary: string | null;
         skills: string[];
         education: string[];
         work: string[];
     }`,
-  });
+    });
 
-  console.log(response.text);
+    console.log(response.text);
 
-  const resumeJSON = JSON.parse(response.text) as Resume;
+    const resumeJSON = JSON.parse(response.text) as Resume;
 
-  return resumeJSON;
-
- } catch (e) {
-    console.log(e)
-    
- }
-
-  
+    return resumeJSON;
+  } catch (e) {
+    console.log(e);
+  }
 };

@@ -2,7 +2,7 @@ import { Sendable } from "@/types/types";
 import db from "@/util/db";
 import { getResume } from "@/lib/getResume";
 import { getServerSession } from "next-auth";
-import { NextRequest, NextResponse } from "next/server";
+
 import { NextApiRequest, NextApiResponse, NextConfig } from "next";
 import formidable from "formidable";
 import { authOptions } from "../auth/[...nextauth]";

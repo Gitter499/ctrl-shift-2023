@@ -52,6 +52,7 @@ p {
   text-align: center;
   width: 60vw;
   height: 60vh;
+  margin: 60px;
   padding: 60px;
   border: 1px solid #000;
   border-radius: 60px;

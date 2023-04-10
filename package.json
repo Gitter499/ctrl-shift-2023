@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && next build --turbo",
+    "build": "npx prisma generate && rmdir ./node_modules/canvas next build",
     "start": "next start",
     "lint": "next lint"
   },

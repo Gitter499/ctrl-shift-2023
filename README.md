@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Welcome to Yes!
 
-## Getting Started
+The AI powered business and networking platform
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Note to readers
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Yes! is in active development. It uses Next 13 with app directory, a very experimental but cutting edge feature of an already cutting edge framework.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Despite having animations, Yes! is extremely fast. Most of the pages are React Server Components
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Additionally, Yes! uses the latest GPT 3.5-turbo models by OpenAI. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Working features
 
-## Learn More
+All the pages on Yes! work, profile page has a CSS bug that I am still trying to fix but other than that they work without issue (that I have noticed)
 
-To learn more about Next.js, take a look at the following resources:
+Authentication with Github fully works on yes! Additionally, the AI resume analysis has successfully been tested, a monumental feature that took a lot of effort.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Currently, this won't work on the deployed version of the site since I have not provided an API key to that version (for abuse reasons). In order to run the AI resume analysis, run locally and provide your own API key. Feel free to reach out for a demo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The simulated chat is the one planned feature that is still a work-in-progress due to it's complexity. 
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How to run locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. clone this repo
+2. Create .env (follow guide below)
+3. `$ next build`
+4.  `$ npm start`
+
+### ENV guide
+
+DATABASE_URL
+
+GITHUB_CLIENT_ID 
+
+GITHUB_CLIENT_SECRET 
+
+
+SECRET
+
+OPENAI_API_KEY 
+
+In order to run fully locally, you need to provide all of the above. If you'd like to see a demo with my API key, please contact me at rafayel.amirkhanyan@gmail.com
+

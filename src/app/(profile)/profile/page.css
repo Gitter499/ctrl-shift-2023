@@ -1,8 +1,36 @@
+/* This container holds the search bar and profile component, must scroll */
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding-top: 120px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  
+  overflow-y: scroll;
+
+}
+
+
+.profile-container {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+
+  border-radius: 20px;
+  position: relative;
+  top: 8%;
 }

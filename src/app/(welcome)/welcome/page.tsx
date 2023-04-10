@@ -30,27 +30,38 @@ const WelcomePage = (props: Props) => {
 
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setSendable({
-      bio: e.currentTarget.bio.value,
-      location: e.currentTarget.location.value,
-      website: e.currentTarget.website.value,
-      birthday: e.currentTarget.birthday.value,
-      resume: file,
-    });
-
-    if (!sendable.resume) {
+    console.log(sendable);
+    if (!sendable?.resume) {
       alert("Please upload a resume.");
     } else {
+      const formData = new FormData();
+
+      formData.append("bio", sendable.bio);
+      formData.append("location", sendable.location);
+      formData.append("website", sendable.website);
+      formData.append("birthday", sendable.birthday);
+      formData.append("resume", sendable.resume);
+
       const res = await fetch("/api/user/info", {
         method: "POST",
-        body: JSON.stringify(sendable),
+        body: formData,
       });
 
       if (res.status == 200) {
         redirect(`/profile`);
       }
     }
+  };
+
+  const handleInputChange = (e: any) => {
+    //const name = e.target.name
+    //const value = e.target.value
+    const { name, value } = e.target;
+
+    setSendable({
+      ...sendable,
+      [name]: value,
+    });
   };
 
   return (
@@ -73,7 +84,8 @@ const WelcomePage = (props: Props) => {
                     cols={30}
                     rows={10}
                     spellCheck
-                    
+                    value={sendable.bio}
+                    onChange={handleInputChange}
                     placeholder="I love eating pizza #NYC"
                   />
                 </div>
@@ -84,6 +96,8 @@ const WelcomePage = (props: Props) => {
                     type="text"
                     name="location"
                     id="location"
+                    value={sendable.location}
+                    onChange={handleInputChange}
                     placeholder="New York, NY"
                   />
                 </div>
@@ -94,36 +108,47 @@ const WelcomePage = (props: Props) => {
                     type="text"
                     name="website"
                     id="website"
+                    value={sendable.website}
+                    onChange={handleInputChange}
                     placeholder="https://example.com"
                   />
                 </div>
                 <div className="birthday">
                   <label htmlFor="birthday">Birthday</label>
-                  <input type="date" name="birthday" id="birthday" />
+                  <input
+                    type="date"
+                    name="birthday"
+                    id="birthday"
+                    onChange={handleInputChange}
+                    value={sendable.birthday}
+                  />
                 </div>
               </div>
               <div className="resume-container">
-                <AH2 className="resume-text">
-                  Resume
-                </AH2>
+                <AH2 className="resume-text">Resume</AH2>
                 <p>Upload your resume to get started.</p>
                 <div className="resume-dropzone">
                   <FileUploader
-                    handleChange={(file: Blob) => setFile(file)}
+                    handleChange={(file: Blob) => {
+                      setSendable({
+                        ...sendable,
+                        resume: file,
+                      });
+                    }}
                     name="file"
-                    types={["PDF"]}
+                    value={sendable.resume}
+                    types={["DOCX"]}
                   />
                 </div>
                 <div className="btn-container">
-                <button
-                  className={`submit-btn ${spacemono.className}`}
-                  type="submit"
-                >
-                  Submit
-                </button>
+                  <button
+                    className={`submit-btn ${spacemono.className}`}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
-              </div>
-              
             </form>
           </div>
         </div>

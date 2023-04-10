@@ -18,7 +18,7 @@ const ProfilePage = async (props: Props) => {
   return (
     <>
       <main>
-        <div className="container">
+        <div className="profile-container">
           {/* @ts-ignore */}
           <Profile email={email} />
         </div>

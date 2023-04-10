@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   },
 };
 const WelcomeLayout = async ({ children }: { children: React.ReactNode }) => {
-//   const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-//   if (!session) redirect("/signin");
+  if (!session) redirect("/signin");
 
-//   // @ts-ignore
-//   if (session?.user?.infoCompleted) redirect("/profile");
+  // @ts-ignore
+  if (session?.user?.infoCompleted) redirect("/profile");
 
   return <>{children}</>;
 };

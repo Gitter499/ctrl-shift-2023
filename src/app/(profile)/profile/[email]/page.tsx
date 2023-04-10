@@ -24,12 +24,12 @@ const PublicProfilePage = async (props: Props) => {
   }
 
   return (
-    <main>
-      <div className="container">
+   
+      <div className="profile-container">
         {/* @ts-ignore */}
         <Profile email={stringifiedEmail} />
       </div>
-    </main>
+   
   );
 };
 

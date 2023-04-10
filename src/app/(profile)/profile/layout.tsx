@@ -1,7 +1,8 @@
+import SearchBar from "@/components/search-bar";
 import { Metadata } from "next";
 import "../../globals.css";
 
-
+import "./page.css"
 export const metadata: Metadata = {
   title: "Profile",
   description: "Profile",
@@ -14,8 +15,16 @@ export const metadata: Metadata = {
     description: "Profile",
   },
 };
+  
 const ProfileLayout = async ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <div className="container">
+        <SearchBar />
+        {children}
+      </div>
+    </>
+  );
 };
 
 export default ProfileLayout;

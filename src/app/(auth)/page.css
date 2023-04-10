@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .col-1 {
@@ -20,6 +21,5 @@
 }
 
 .col-2 {
-    background-color: beige;
-    color: black;
+    background-color: linear-gradient(90deg, #0000ff 0%, #ff00ff 100%);
 }
